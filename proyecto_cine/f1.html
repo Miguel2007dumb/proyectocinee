@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Cartelera - Superman</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="contenedor">
+    <div class="cuadro-imagen">
+        <img src="img/f1pos.webp" alt="Formula 1">
+    </div>
+
+    <div class="cuadro-info">
+        <h1>Formula 1 : La pelcula</h1>
+        <p>Apodado "el más grande que nunca fue", Sonny Hayes (Brad Pitt) fue el fenómeno más prometedor de la FÓRMULA 1 de los años 90 hasta que sufrió un espectacular accidente. Treinta años después, es un piloto nómade a sueldo cuando es abordado por su ex compañero de equipo Ruben Cervantes (Javier Bardem), dueño de un equipo de F1 en problemas que está al borde del colapso. Ruben convence a Sonny de regresar a la FÓRMULA 1 para una última oportunidad de salvar el equipo y ser el mejor del mundo. Competirá junto a Joshua Pearce (Damson Idris), el joven prodigio del equipo decidido a marcar su propio ritmo acelerado. Pero mientras los motores rugen, el pasado de Sonny lo alcanza y se da cuenta de que en F1, tu compañero de equipo es tu competencia más feroz, y el camino hacia la redención no es algo que puedas recorrer solo.F1 también cuenta con las actuaciones de Damson Idris, Kerry Condon, Tobias Menzies, Kim Bodnia y Javier Bardem, y ha sido filmada durante fines de semana reales de Gran Premio mientras el equipo compite contra los titanes del deporte.</p>
+
+        <div class="selector">
+            <label>Cine</label>
+            <select id="cine"></select>
+        </div>
+
+        <div class="selector">
+            <label>Sala</label>
+            <select id="sala"></select>
+        </div>
+
+        <div class="selector">
+            <label>Hora</label>
+            <select id="Hora">
+                <option>10:00 AM</option>
+                <option>12:45 PM</option>
+                <option>2:00 PM</option>
+                <option>4:30 PM</option>
+                <option>7:00 PM</option>
+                <option>8:15 PM</option>
+                <option>10:45 PM</option>
+            </select>
+        </div>
+
+        <div class="selector">
+            <label>Formato</label>
+            <select id="formato"></select>
+        </div>
+
+        <button class="boton" id="btnMostrarAsientos">Ver disponibilidad</button>
+        <div class="resumen" id="precio"></div>
+    </div>
+</div>
+
+<div class="seccion-asientos" id="asientosSection" style="display:none;">
+    <h2>Selección de Sala y Asientos</h2>
+    <div id="infoSala"></div>
+    <div class="asientos" id="contenedorAsientos"></div>
+    <button class="boton" id="btnConfirmar">Confirmar selección</button>
+</div>
+
+<script src="js/script.js"></script>
+</body>
+</html>

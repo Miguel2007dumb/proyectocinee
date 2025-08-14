@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Cartelera - La Quimera del Oro</title>
+    <link rel="stylesheet" href="css/style.css">
+  
+</head>
+<body>
+
+    <div class="contenedor">
+       
+        <div class="cuadro-imagen">
+            <img src="img/lqdo.jpg" alt="La Quimera del Oro">
+        </div>
+
+        
+        <div class="cuadro-info">
+            <h1>La Quimera del Oro</h1>
+            <p>100 años de la mayor aventura de Chaplin. Una comedia clásica ambientada en la fiebre del oro, con humor visual y momentos inolvidables.</p>
+
+           
+            <div class="selector">
+                <label>Cine</label>
+                <select id="cine">
+                    <option>Cinemark Multiplaza</option>
+                    <option>Cinemark City Mall</option>
+                    <option>Cinépolis Plaza Miraflores</option>
+                    <option>Cinépolis Las Cascadas</option>
+                    <option>Metrocinemas Novacentro</option>
+                    <option>Metrocinemas Metromall</option>
+                </select>
+            </div>
+
+            
+            <div class="selector">
+                <label>Sala</label>
+                <select id="sala">
+                    <option>Sala 1</optio>
+                    <option>Sala 3</option>
+                    <option>Sala VIP</option>
+                </select>
+            </div>
+
+            
+            <div class="selector">
+                <label>Hora</label>
+                <select id="Hora">
+                    <option>10:00 AM</option>
+                    <option>12:45 PM</option>
+                    <option>2:00 PM</option>
+                    <option>4:30 PM</option>
+                    <option>7:00 PM</option>
+                    <option>8:15 PM</option>
+                    <option>10:45 PM</option>
+                </select>
+            </div>
+
+            
+            <div class="selector">
+                <label>Formato</label>
+                <select id="formato">
+                    <option>2D</option>
+                    <option>3D</option>
+                    <option>IMAX</option>
+                </select>
+            </div>
+
+            <button class="boton" onclick="mostrarAsientos()">Ver disponibilidad</button>
+            <div class="resumen" id="precio"></div>
+        </div>
+    </div>
+
+    
+    <div class="seccion-asientos" id="asientosSection" style="display:none;">
+        <h2>Selección de Sala y Asientos</h2>
+        <div id="infoSala"></div>
+        <div class="asientos" id="contenedorAsientos"></div>
+        <button class="boton" onclick="confirmarCompra()">Confirmar selección</button>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

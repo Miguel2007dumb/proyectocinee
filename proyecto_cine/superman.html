@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Cartelera - La Quimera del Oro</title>
+    <link rel="stylesheet" href="css/style.css">
+  
+</head>
+<body>
+
+    <div class="contenedor">
+       
+        <div class="cuadro-imagen">
+            <img src="img/spmn.jpg" alt="Los Pitufos">
+        </div>
+
+        
+        <div class="cuadro-info">
+            <h1>Superman</h1>
+            <p>Nueva película de Superman, escrita por James Gunn, que «no será una historia de origen». Con su estilo característico, Gunn aborda al superhéroe original en el recién imaginado universo DC con una singular mezcla de acción épica, humor y corazón, ofreciendo un Superman impulsado por la compasión y una creencia inherente en la bondad de la humanidad.</p>
+
+           
+            <div class="selector">
+                <label>Cine</label>
+                <select id="cine">
+                    <option>Cinemark Multiplaza</option>
+                    <option>Cinemark City Mall</option>
+                    <option>Cinépolis Plaza Miraflores</option>
+                    <option>Cinépolis Las Cascadas</option>
+                    <option>Metrocinemas Novacentro</option>
+                    <option>Metrocinemas Metromall</option>
+                </select>
+            </div>
+
+            
+            <div class="selector">
+                <label>Sala</label>
+                <select id="sala">
+                    <option>Sala 1</optio>
+                    <option>Sala 3</option>
+                    <option>Sala VIP</option>
+                </select>
+            </div>
+
+            
+            <div class="selector">
+                <label>Hora</label>
+                <select id="hora">
+                    <option>10:00 AM</option>
+                    <option>12:45 PM</option>
+                    <option>2:00 PM</option>
+                    <option>4:30 PM</option>
+                    <option>7:00 PM</option>
+                    <option>8:15 PM</option>
+                    <option>10:45 PM</option>
+                </select>
+            </div>
+
+            
+            <div class="selector">
+                <label>Formato</label>
+                <select id="formato">
+                    <option>2D</option>
+                    <option>3D</option>
+                    <option>IMAX</option>
+                </select>
+            </div>
+
+            <button class="boton" onclick="mostrarAsientos()">Ver disponibilidad</button>
+            <div class="resumen" id="precio"></div>
+        </div>
+    </div>
+
+    
+    <div class="seccion-asientos" id="asientosSection" style="display:none;">
+        <h2>Selección de Sala y Asientos</h2>
+        <div id="infoSala"></div>
+        <div class="asientos" id="contenedorAsientos"></div>
+        <button class="boton" onclick="confirmarCompra()">Confirmar selección</button>
+    </div>
+
+    <script>
+        const precios = {
+             "Cinemark Multiplaza": { "Sala 1": 130, "Sala 3": 140, "Sala VIP": 150 },
+            "Cinemark City Mall": { "Sala 1": 120, "Sala 3": 130, "Sala VIP": 160 },
+            "Cinépolis Plaza Miraflores": { "Sala 1": 100, "Sala 3": 130, "Sala VIP": 150 },
+            "Cinépolis Las Cascadas": { "Sala 1": 130, "Sala 3": 150, "Sala VIP": 200 },
+            "Metrocinemas Novacentro": { "Sala 1": 120, "Sala 3": 130, "Sala VIP": 160},
+            "Metrocinemas Metromall": { "Sala 1": 90, "Sala 3": 120, "Sala VIP": 180 }
+            
+        };
+
+        const formatoExtra = { "2D": 0, "3D": 30, "IMAX": 60 };
+
+        const asientosOcupados = {
+            "Sala 1": [2, 5, 20],
+            "Sala 3": [1, 4, 7],
+            "Sala 5": [2, 6, 38],
+            "Sala VIP": [3, 8, 10]
+        };
+
+        let seleccionados = [];
+        let precioUnitario = 0;
+
+        function mostrarAsientos() {
+            const cine = document.getElementById('cine').value;
+            const sala = document.getElementById('sala').value;
+            const hora = document.getElementById('hora').value;
+            const formato = document.getElementById('formato').value;
+
+            const base = precios[cine][sala];
+            const extra = formatoExtra[formato];
+            precioUnitario = base + extra;
+
+            document.getElementById('precio').innerHTML = `<strong>Precio por entrada:</strong> L. ${precioUnitario}`;
+            document.getElementById('infoSala').innerHTML = `
+                <p><strong>Cine:</strong> ${cine}</p>
+                <p><strong>Sala:</strong> ${sala}</p>
+                <p><strong>Hora:</strong> ${hora}</p>
+                <p><strong>Formato:</strong> ${formato}</p>
+                <p><strong>Precio por entrada:</strong> L. ${precioUnitario}</p>
+            `;
+
+            renderizarAsientos(sala);
+            document.getElementById('asientosSection').style.display = 'block';
+        }
+
+        function renderizarAsientos(sala) {
+            const contenedor = document.getElementById('contenedorAsientos');
+            contenedor.innerHTML = '';
+            seleccionados = [];
+
+            for (let i = 1; i <= 50; i++) {
+                const asiento = document.createElement('div');
+                asiento.classList.add('asiento');
+                asiento.textContent = i;
+
+                if (asientosOcupados[sala].includes(i)) {
+                    asiento.classList.add('ocupado');
+                } else {
+                    asiento.addEventListener('click', () => {
+                        if (asiento.classList.contains('seleccionado')) {
+                            asiento.classList.remove('seleccionado');
+                            seleccionados = seleccionados.filter(num => num !== i);
+                        } else {
+                            asiento.classList.add('seleccionado');
+                            seleccionados.push(i);
+                        }
+                    });
+                }
+                contenedor.appendChild(asiento);
+            }
+        }
+
+        function confirmarCompra() {
+            if (seleccionados.length === 0) {
+                alert("Por favor selecciona al menos un asiento.");
+                return;
+            }
+
+            const cine = document.getElementById('cine').value;
+            const sala = document.getElementById('sala').value;
+            const hora = document.getElementById('hora').value;
+            const formato = document.getElementById('formato').value;
+            const total = seleccionados.length * precioUnitario;
+            const asientos = seleccionados.join(',');
+
+            const url = `ticket.html?cine=${encodeURIComponent(cine)}&sala=${encodeURIComponent(sala)}&hora=${encodeURIComponent(hora)}&formato=${encodeURIComponent(formato)}&asientos=${encodeURIComponent(asientos)}&total=${total}`;
+            window.open(url, '_blank');
+        }
+    </script>
+</body>
+</html>

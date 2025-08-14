@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Cartelera - Superman</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="contenedor">
+    <div class="cuadro-imagen">
+        <img src="img/supermascotas.png" alt="Supermascotas">
+    </div>
+
+    <div class="cuadro-info">
+        <h1>Supermascotas</h1>
+        <p>Krypto el Superperro y Superman son amigos inseparables que comparten los mismos superpoderes y luchan juntos contra el crimen en Metrópolis. Cuando Superman y el resto de la Liga de la Justicia son secuestrados, Krypto debe convencer a un variopinto grupo de un albergue -Ace el sabueso, PB la cerdita barrigona, Merton la tortuga y Chip la ardilla- de dominar sus nuevos poderes y ayudarlo a rescatar a los superhéroes.</p>
+
+        <div class="selector">
+            <label>Cine</label>
+            <select id="cine"></select>
+        </div>
+
+        <div class="selector">
+            <label>Sala</label>
+            <select id="sala"></select>
+        </div>
+
+        <div class="selector">
+            <label>Hora</label>
+            <select id="Hora">
+                <option>10:00 AM</option>
+                <option>12:45 PM</option>
+                <option>2:00 PM</option>
+                <option>4:30 PM</option>
+                <option>7:00 PM</option>
+                <option>8:15 PM</option>
+                <option>10:45 PM</option>
+            </select>
+        </div>
+
+        <div class="selector">
+            <label>Formato</label>
+            <select id="formato"></select>
+        </div>
+
+        <button class="boton" id="btnMostrarAsientos">Ver disponibilidad</button>
+        <div class="resumen" id="precio"></div>
+    </div>
+</div>
+
+<div class="seccion-asientos" id="asientosSection" style="display:none;">
+    <h2>Selección de Sala y Asientos</h2>
+    <div id="infoSala"></div>
+    <div class="asientos" id="contenedorAsientos"></div>
+    <button class="boton" id="btnConfirmar">Confirmar selección</button>
+</div>
+
+<script src="js/script.js"></script>
+</body>
+</html>

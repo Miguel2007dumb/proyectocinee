@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Cartelera - Superman</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="contenedor">
+    <div class="cuadro-imagen">
+        <img src="img/ceatd.png" alt="Como entrenar a tu dragon">
+    </div>
+
+    <div class="cuadro-info">
+        <h1>Como entrenar a tu dragon</h1>
+        <p>Un niño vikingo llamado Hipo desafía la tradición al hacerse amigo de un dragón llamado Chimuelo. Cuando surge una antigua amenaza que pone en peligro a ambas especies, la amistad de Hipo con Chimuelo se convierte en la clave para un nuevo futuro.</p>
+
+        <div class="selector">
+            <label>Cine</label>
+            <select id="cine"></select>
+        </div>
+
+        <div class="selector">
+            <label>Sala</label>
+            <select id="sala"></select>
+        </div>
+
+        <div class="selector">
+            <label>Hora</label>
+            <select id="Hora">
+                <option>10:00 AM</option>
+                <option>12:45 PM</option>
+                <option>2:00 PM</option>
+                <option>4:30 PM</option>
+                <option>7:00 PM</option>
+                <option>8:15 PM</option>
+                <option>10:45 PM</option>
+            </select>
+        </div>
+
+        <div class="selector">
+            <label>Formato</label>
+            <select id="formato"></select>
+        </div>
+
+        <button class="boton" id="btnMostrarAsientos">Ver disponibilidad</button>
+        <div class="resumen" id="precio"></div>
+    </div>
+</div>
+
+<div class="seccion-asientos" id="asientosSection" style="display:none;">
+    <h2>Selección de Sala y Asientos</h2>
+    <div id="infoSala"></div>
+    <div class="asientos" id="contenedorAsientos"></div>
+    <button class="boton" id="btnConfirmar">Confirmar selección</button>
+</div>
+
+<script src="js/script.js"></script>
+</body>
+</html>

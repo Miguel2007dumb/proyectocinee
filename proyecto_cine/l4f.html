@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Cartelera - Superman</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="contenedor">
+    <div class="cuadro-imagen">
+        <img src="img/l4f.webp" alt="Los 4 Fantasticos">
+    </div>
+
+    <div class="cuadro-info">
+        <h1>Los 4 Fantasticos</h1>
+        <p>LOS CUATRO FANTÁSTICOS: PRIMEROS PASOS de Marvel Studios, introduce a Reed Richards / Sr. Fantástico (Pedro Pascal), Sue Storm / Mujer Invisible (Vanessa Kirby), Johnny Storm / La Antorcha Humana (Joseph Quinn) y Ben Grimm / La Mole (Ebon Moss-Bachrach) mientras enfrentan su más grande desafío hasta el momento. Obligados a equilibrar sus roles de héroes con la fuerza de su vínculo familiar, deben defender la Tierra de un voraz dios del espacio llamado Galactus (Ralph Ineson) y su enigmática Heralda, Silver Surfer (Julia Garner). Y si el plan de Galactus de devorar todo el planeta y consigo a todos sus habitantes no fuera suficiente, las cosas pueden complicarse aún más. Es fantastico</p>
+
+        <div class="selector">
+            <label>Cine</label>
+            <select id="cine"></select>
+        </div>
+
+        <div class="selector">
+            <label>Sala</label>
+            <select id="sala"></select>
+        </div>
+
+        <div class="selector">
+            <label>Hora</label>
+            <select id="Hora">
+                <option>10:00 AM</option>
+                <option>12:45 PM</option>
+                <option>2:00 PM</option>
+                <option>4:30 PM</option>
+                <option>7:00 PM</option>
+                <option>8:15 PM</option>
+                <option>10:45 PM</option>
+            </select>
+        </div>
+
+        <div class="selector">
+            <label>Formato</label>
+            <select id="formato"></select>
+        </div>
+
+        <button class="boton" id="btnMostrarAsientos">Ver disponibilidad</button>
+        <div class="resumen" id="precio"></div>
+    </div>
+</div>
+
+<div class="seccion-asientos" id="asientosSection" style="display:none;">
+    <h2>Selección de Sala y Asientos</h2>
+    <div id="infoSala"></div>
+    <div class="asientos" id="contenedorAsientos"></div>
+    <button class="boton" id="btnConfirmar">Confirmar selección</button>
+</div>
+
+<script src="js/script.js"></script>
+</body>
+</html>
